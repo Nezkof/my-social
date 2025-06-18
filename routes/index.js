@@ -1,7 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
-const { UserController, PostController, CommentController } = require("../controllers");
+const {
+   UserController,
+   PostController,
+   CommentController,
+   LikeController,
+} = require("../controllers");
 const authentificateToken = require("../middleware/auth");
 
 const uploadDestination = "uploads";
@@ -31,5 +36,9 @@ router.delete("/posts/:id", authentificateToken, PostController.deletePost);
 //COMMENTS ROUTES
 router.post("/comments", authentificateToken, CommentController.createComment);
 router.delete("/comments/:id", authentificateToken, CommentController.deleteComment);
+
+//LIKES ROUTES
+router.post("/likes", authentificateToken, LikeController.likePost);
+router.delete("/likes/:id", authentificateToken, LikeController.unlikePost);
 
 module.exports = router;
