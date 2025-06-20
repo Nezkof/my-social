@@ -6,8 +6,49 @@ import { store } from "./app/store"
 import "./index.css"
 
 import { HeroUIProvider } from "@heroui/react"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { ThemeProvider } from "./components/theme-provider/theme-provider"
+import { Layout } from "./components/layout/layout"
+import { Auth } from "./pages/auth"
+import { UserProfile } from "./pages/user-profile"
+import { Followers } from "./pages/followers"
+import { CurrentPost } from "./pages/current-post"
+import { Following } from "./pages/following"
+import { Posts } from "./pages/posts"
 
 const container = document.getElementById("root")
+const router = createBrowserRouter([
+  {
+    path: `/auth`,
+    element: <Auth />,
+  },
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "",
+        element: <Posts />,
+      },
+      {
+        path: "posts/:id",
+        element: <CurrentPost />,
+      },
+      {
+        path: "users/:id",
+        element: <UserProfile />,
+      },
+      {
+        path: "followers",
+        element: <Followers />,
+      },
+      {
+        path: "following",
+        element: <Following />,
+      },
+    ],
+  },
+])
 
 if (container) {
   const root = createRoot(container)
@@ -16,7 +57,9 @@ if (container) {
     <StrictMode>
       <Provider store={store}>
         <HeroUIProvider>
-          <App />
+          <ThemeProvider>
+            <RouterProvider router={router}></RouterProvider>
+          </ThemeProvider>
         </HeroUIProvider>
       </Provider>
     </StrictMode>,
