@@ -76,7 +76,7 @@ export const Login: React.FC<Props> = ({ setSelected }) => {
           className="cursor-pointer"
           onPress={() => setSelected("sign-up")}
         >
-          Sing up
+          Sign up
         </Link>
       </p>
       <div className="flex gap-2 justify-end">

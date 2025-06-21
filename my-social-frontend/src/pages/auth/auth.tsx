@@ -17,10 +17,10 @@ export const Auth = () => {
               selectedKey={selected}
               onSelectionChange={key => setSelected(key as string)}
             >
-              <Tab key="login" title="Sing in">
+              <Tab key="login" title="Sign in">
                 <Login setSelected={setSelected} />
               </Tab>
-              <Tab key="sign-up" title="Sing up">
+              <Tab key="sign-up" title="Sign up">
                 <Register setSelected={setSelected} />
               </Tab>
             </Tabs>

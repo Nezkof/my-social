@@ -11,9 +11,9 @@ import { Layout } from "./components/layout/layout"
 import { Auth } from "./pages/auth/auth"
 import { UserProfile } from "./pages/user-profile"
 import { Followers } from "./pages/followers"
-import { CurrentPost } from "./pages/current-post"
+import { CurrentPost } from "./pages/current-post/current-post"
 import { Following } from "./pages/following"
-import { Posts } from "./pages/posts"
+import { Posts } from "./pages/posts/posts"
 import { AuthGuard } from "./features/user/authGuard"
 
 const container = document.getElementById("root")

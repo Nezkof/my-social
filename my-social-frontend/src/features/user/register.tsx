@@ -71,12 +71,12 @@ export const Register = ({ setSelected }: Props) => {
           className="cursor-pointer"
           onPress={() => setSelected("login")}
         >
-          Sing in
+          Sign in
         </Link>
       </p>
       <div className="flex gap-2 justify-end">
         <Button fullWidth color="primary" type="submit">
-          Sing up
+          Sign up
         </Button>
       </div>
     </form>
