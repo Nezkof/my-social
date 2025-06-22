@@ -1,6 +1,6 @@
-import { Control, useController } from "react-hook-form"
 import React, { JSX } from "react"
 import { Input as NextInput } from "@heroui/react"
+import { Control, useController } from "react-hook-form"
 
 type Props = {
   name: string
@@ -19,7 +19,6 @@ export const Input: React.FC<Props> = ({
   type,
   control,
   required = "",
-  endContent,
 }) => {
   const {
     field,
