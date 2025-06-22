@@ -9,7 +9,7 @@ require("dotenv").config();
 
 const app = express();
 
-app.unsubscribe(cors());
+app.use(cors());
 
 app.use(logger("dev"));
 app.use(express.json());

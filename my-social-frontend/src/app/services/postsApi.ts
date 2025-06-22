@@ -6,7 +6,7 @@ export const postApi = api.injectEndpoints({
     createPost: builder.mutation<Post, { content: string }>({
       query: postData => ({
         url: "/posts",
-        methods: "POST",
+        method: "POST",
         body: postData,
       }),
     }),

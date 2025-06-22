@@ -9,7 +9,7 @@ import { IoMdCreate } from "react-icons/io"
 
 export const CreatePost = () => {
   const [createPost] = useCreatePostMutation()
-  const [triggerAllPosts] = useLazyGetAllPostsQuery()
+  const [triggerGetAllPosts] = useLazyGetAllPostsQuery()
 
   const {
     handleSubmit,
@@ -21,12 +21,14 @@ export const CreatePost = () => {
   const error = errors?.post?.message as string
 
   const onSubmit = handleSubmit(async data => {
+    console.log("Submitting with data:", data)
     try {
-      await createPost({ content: data.post }).unwrap()
+      const result = await createPost({ content: data.post }).unwrap()
+      console.log("Post created:", result)
       setValue("post", "")
-      await triggerAllPosts().unwrap()
+      await triggerGetAllPosts().unwrap()
     } catch (error) {
-      console.log(error)
+      console.error("Error while creating post:", error)
     }
   })
 
@@ -44,7 +46,7 @@ export const CreatePost = () => {
             {...field}
             labelPlacement="outside"
             placeholder="..."
-            className="'mb-5"
+            className="mb-5"
           ></Textarea>
         )}
       ></Controller>
